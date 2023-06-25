@@ -1,5 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require("tailwindcss/colors"); 
+
 module.exports = {
+  mode: 'jit', 
+  darkMode: 'class', // pentru dark mode in className adaugi clasa de bg/text color cu dark in fata (dark: text-white)
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -12,6 +17,20 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: { 
+        primary: "#202225", 
+        gray: colors.neutralGray, //example of using some more tailwind available colors,  
+        gray: { //overwrite available tailwind gray colors 
+          900: '#202225',
+          800: '#2f3136',
+          700: '#36393f',
+          600: '#4f545c',
+          400: '#d4d7dc',
+          300: '#e3e5e8',
+          200: '#ebedef',
+          100: '#f2f3f5',
+        } 
+      }
     },
   },
   plugins: [],
